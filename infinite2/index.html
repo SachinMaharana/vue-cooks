@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Infinite Scroll</title>
+</head>
+
+<body>
+    <div id="app">
+        <section>
+            <h1>Make yourself some Punk Beers </h1>
+            <div v-if="beers.length === 0" class="loading">Loading...</div>
+            <div v-for="beer in beers" class="beer-contain">
+                <div class="beer-img">
+                    <img :src="beer.img" height="350" /> </div>
+                <div class="beer-info">
+                    <h2>{{ beer.name }}</h2>
+                    <p class="bright">{{ beer.tagline }}</p>
+                    <p>
+                        <span class="bright">Description:</span> {{ beer.desc }}</p>
+                    <p>
+                        <span class="bright">Tips:</span> {{ beer.tips }}</p>
+                    <h3 class="bright">Food Pairings</h3>
+                    <ul>
+                        <li v-for="item in beer.food"> {{ item }} </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="main.js"></script>
+
+
+</body>
+
+</html>
